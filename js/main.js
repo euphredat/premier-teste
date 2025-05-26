@@ -246,9 +246,12 @@ async function displayDefaultRoute() {
     // Mettre à jour les champs de sélection
     const departSelect = document.getElementById("depart");
     const arriveeSelect = document.getElementById("arrivee");
-    if (departSelect && arriveeSelect) {
+    const transportSelect = document.getElementById("transport");
+
+    if (departSelect && arriveeSelect && transportSelect) {
       departSelect.value = "0"; // ID de Thonon-les-Bains
       arriveeSelect.value = "692"; // ID de Menton
+      transportSelect.value = "voiture"; // Mode de déplacement par défaut
     }
 
     // Mettre à jour les images et les noms
@@ -256,8 +259,7 @@ async function displayDefaultRoute() {
     updateArrivalImage();
 
     // Calculer la distance et la durée
-    const transportMode = document.getElementById("transport").value || "voiture"; // Par défaut : voiture
-    calculateRouteDetails(departSelect.value, arriveeSelect.value, transportMode);
+    calculateRouteDetails(departSelect.value, arriveeSelect.value, transportSelect.value);
 
     // Mettre à jour le titre de l'itinéraire
     const routeTitle = document.getElementById("route-title");

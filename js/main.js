@@ -36,8 +36,8 @@ function initMap() {
     container: 'map', // ID de l'élément HTML pour la carte
     style: 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json', // Style de la carte
     center: [6.9, 45.5], // Longitude, Latitude
-    zoom: 8, // Niveau de zoom initial
-    pitch: 45, // Inclinaison initiale
+    zoom: 5, // Niveau de zoom initial
+    pitch: 63, // Inclinaison initiale
     bearing: 0, // Orientation initiale
   });
 

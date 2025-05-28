@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Route des Grandes Alpes</title>
+  <!-- CSS de MapLibre GL -->
+  <link rel='stylesheet' href='https://unpkg.com/maplibre-gl@5.5.0/dist/maplibre-gl.css' />
+    <script src='https://unpkg.com/maplibre-gl@5.5.0/dist/maplibre-gl.js'></script>
+  <!-- Votre fichier CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="container">
+        <ul class="main-nav">
+          <li><a href="#" class="active">ACCUEIL</a></li>
+          <li><a href="#">HISTORIQUE</a></li>
+          <li><a href="#">ITINÉRAIRES</a></li>
+          <li><a href="#">TOURISME</a></li>
+          <li><a href="#">VISUELS</a></li>
+          <li><a href="#">SITES ET FORUMS</a></li>
+          <li><a href="#">EXTRAS</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <div class="breadcrumb">
+    <div class="container">
+      <div class="left">
+        <h2>Itinéraires sur la RGA</h2>
+      </div>
+      <div class="right">
+        <a href="#">Itinéraires</a> > <a href="#">La route des Grandes Alpes</a> > Cartes personnalisées
+      </div>
+    </div>
+  </div>
+
+  <main class="container">
+    <section class="route-planner">
+      <h1>CARTES PERSONNALISÉES ET GPX</h1>
+      
+      <p class="intro-text">
+        Plus de 500 itinéraires et fichiers gpx à la carte en choisissant parmi 32 points de départ et 32 d'arrivée
+      </p>
+
+      <div class="route-form">
+        <div class="form-row">
+          <div class="form-group">
+            <select id="depart" class="form-control">
+              <option value="">Ville ou col de départ</option>
+              <option value="0">THONON les BAINS</option>
+              <option value="37">COL des GETS</option>
+              <option value="59">CLUSES</option>
+              <option value="79">COL de la COLOMBIERE</option>
+              <option value="90">LE GRAND BORNAND</option>
+              <option value="103">COL des ARAVIS</option>
+              <option value="131">COL des SAISIES</option>
+              <option value="148">BEAUFORT</option>
+              <option value="168">CORMET de ROSELEND</option>
+              <option value="188">BOURG ST MAURICE</option>
+              <option value="235">COL DE L ISERAN</option>
+              <option value="249">BONNEVAL s ARC</option>
+              <option value="292">MODANE</option>
+              <option value="310">ST MICHEL de MAURIENNE</option>
+              <option value="323">COL du TELEGRAPHE</option>
+              <option value="346">COL du GALIBIER</option>
+              <option value="355">COL du LAUTARET</option>
+              <option value="383">BRIANCON</option>
+              <option value="403">COL d IZOARD</option>
+              <option value="433">GUILLESTRE</option>
+              <option value="453">COL de VARS</option>
+              <option value="475">JAUSIERS</option>
+              <option value="484">BARCELONNETTE</option>
+              <option value="513">COL de la CAYOLLE</option>
+              <option value="534">ST Martin d ENTRAUNES</option>
+              <option value="558">COL de VALBERG</option>
+              <option value="572">COL de la COUILLOLE</option>
+              <option value="589">ST SAUVEUR s TINEE</option>
+              <option value="610">COL ST MARTIN</option>
+              <option value="646">COL de TURINI</option>
+              <option value="670">SOSPEL</option>
+              <option value="677">COL de CASTILLON</option>
+              <option value="692">MENTON</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <select id="arrivee" class="form-control">
+              <option value="">Ville ou col d'arrivée</option>
+              <option value="0">THONON les BAINS</option>
+              <option value="37">COL des GETS</option>
+              <option value="59">CLUSES</option>
+              <option value="79">COL de la COLOMBIERE</option>
+              <option value="90">LE GRAND BORNAND</option>
+              <option value="103">COL des ARAVIS</option>
+              <option value="131">COL des SAISIES</option>
+              <option value="148">BEAUFORT</option>
+              <option value="168">CORMET de ROSELEND</option>
+              <option value="188">BOURG ST MAURICE</option>
+              <option value="235">COL de L ISERAN</option>
+              <option value="249">BONNEVAL s ARC</option>
+              <option value="292">MODANE</option>
+              <option value="310">ST MICHEL de MAURIENNE</option>
+              <option value="323">COL du TELEGRAPHE</option>
+              <option value="346">COL du GALIBIER</option>
+              <option value="355">COL du LAUTARET</option>
+              <option value="383">BRIANCON</option>
+              <option value="403">COL d IZOARD</option>
+              <option value="433">GUILLESTRE</option>
+              <option value="453">COL de VARS</option>
+              <option value="475">JAUSIERS</option>
+              <option value="484">BARCELONNETTE</option>
+              <option value="513">COL de la CAYOLLE</option>
+              <option value="534">ST Martin d ENTRAUNES</option>
+              <option value="558">COL de VALBERG</option>
+              <option value="572">COL de la COUILLOLE</option>
+              <option value="589">ST SAUVEUR s TINEE</option>
+              <option value="610">COL ST MARTIN</option>
+              <option value="646">COL de TURINI</option>
+              <option value="670">SOSPEL</option>
+              <option value="677">COL de CASTILLON</option>
+              <option value="692">MENTON</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <select id="transport" class="form-control">
+              <option value="">Mode de déplacement</option>
+              <option value="voiture">Voiture</option>
+              <option value="moto">Moto</option>
+              <option value="velo">Vélo</option>
+              <option value="camping-car">Camping Ca</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <button id="calculate-btn" class="btn btn-primary">Calculer & Afficher</button>
+          </div>
+          
+          <div class="form-group">
+            <button id="reverse-btn" class="btn btn-secondary">Inverser l'itinéraire</button>
+          </div>
+          
+          <div class="form-group">
+            <input type="text" id="distance" class="form-control" placeholder="Distance" readonly>
+          </div>
+          
+          <div class="form-group">
+            <input type="text" id="duree" class="form-control" placeholder="Durée estimée" readonly>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="route-display">
+      <h2 id="route-title">Sélectionnez un itinéraire</h2>
+      
+      <div class="route-content">
+        <div class="route-images">
+         <div class="departure-image">
+  <p id="departure-title">
+    <img id="departure-icon" src="https://cdn.jsdelivr.net/gh/pointhi/leaflet-color-markers@master/img/marker-icon-green.png" alt="Départ" style="width:20px;vertical-align:middle;margin-right:5px;">
+    <span id="departure-name">Sélectionnez un point de départ</span>
+  </p>
+  <img id="departure-img" src="images/placeholder.jpg" alt="Point de départ">
+</div>
+
+<div class="arrival-image">
+  <p id="arrival-title">
+    <img id="arrival-icon" src="https://cdn.jsdelivr.net/gh/pointhi/leaflet-color-markers@master/img/marker-icon-red.png" alt="Arrivée" style="width:20px;vertical-align:middle;margin-right:5px;">
+    <span id="arrival-name">Sélectionnez un point d'arrivée</span>
+  </p>
+  <img id="arrival-img" src="images/placeholder.jpg" alt="Point d'arrivée">
+</div>
+          <div class="download-container">
+            <a id="download-link" href="#" class="btn btn-download">Télécharger le GPX</a>
+          </div>
+        </div>
+        
+             <div class="map-container">
+          <div id="map">
+         <div class="map-controls">
+    <!-- Icône flottante pour basculer entre les couches -->
+    <div id="layer-toggle-icon" class="map-icon">
+      <div id="layer-toggle-icon" class="map-icon">
+  <img src="icone/couche.ico" alt="Icône des couches" class="icon-image">
+</div>
+    </div>
+   <div id="layer-dropdown" class="map-overlay" style="display: none;">
+  <ul>
+     <li data-layer="opentopomap">OSM OpenTopoMap</li>
+    <li data-layer="standard">openstreepmap</li>
+    <li data-layer="satellite-arcgis">Satellite (ArcGIS)</li>
+   <!-- data-layer="satellite-mapbox">Satellite (Mapbox)</li>  -->
+    <li data-layer="osm-fr">OSM-Fr</li>
+    <li data-layer="carto-light">carto-light</li>
+  </ul>
+</div>
+    </div>
+  </div>
+</div>
+</div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-top">
+      <div class="container">
+        <h2>La Route des Grandes Alpes</h2>
+        <p>L'une des 7 plus belles routes de France, à partager sur les réseaux :</p>
+        <div class="social-icons">
+          <a href="#" class="social-icon twitter">Twitter</a>
+          <a href="#" class="social-icon facebook">Facebook</a>
+          <a href="#" class="social-icon instagram">Instagram</a>
+          <a href="#" class="social-icon whatsapp">WhatsApp</a>
+          <a href="#" class="social-icon linkedin">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="container">
+        <p>Conception, design et développement : Didier Blavette</p>
+        <p>Tous droits réservés - <a href="#">Mentions légales</a> - Copyright© - <a href="#">Plan du site</a></p>
+      </div>
+    </div>
+  </footer>
+
+     <script src='https://unpkg.com/maplibre-gl@5.5.0/dist/maplibre-gl.js'></script>
+
+  <script src="js/route-calculator.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
